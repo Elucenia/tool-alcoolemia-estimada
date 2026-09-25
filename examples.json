@@ -1,0 +1,119 @@
+[
+  {
+    "label": "Homem, 70 kg, 4 latas, 2 h: 55,23 g; pico 1,160 g/L; agora 0,86 g/L (crime)",
+    "input": {
+      "sexo": "M",
+      "peso": 70,
+      "cerveja": 4,
+      "horas": 2
+    },
+    "expected": {
+      "raw": {
+        "alcohol": 55.23,
+        "c0": 1.1603,
+        "bac": 0.8603,
+        "zero": 5.735
+      },
+      "level": "high",
+      "tol": 0.005
+    },
+    "originalInput": {
+      "sexo": "M",
+      "peso": 70,
+      "cerveja": 4,
+      "horas": 2
+    },
+    "expandedZeroOptions": []
+  },
+  {
+    "label": "Mulher, 60 kg, 1 taça de vinho, 1 h: 14,20 g; 0,43 − 0,15 = 0,28 g/L (infração)",
+    "input": {
+      "sexo": "F",
+      "peso": 60,
+      "vinho": 1,
+      "horas": 1
+    },
+    "expected": {
+      "raw": {
+        "alcohol": 14.202,
+        "bac": 0.2804
+      },
+      "level": "mid",
+      "tol": 0.005
+    },
+    "originalInput": {
+      "sexo": "F",
+      "peso": 60,
+      "vinho": 1,
+      "horas": 1
+    },
+    "expandedZeroOptions": []
+  },
+  {
+    "label": "Homem, 80 kg, 1 lata, 3 h: 0,254 − 0,45 &lt; 0: estimativa zerada",
+    "input": {
+      "sexo": "M",
+      "peso": 80,
+      "cerveja": 1,
+      "horas": 3
+    },
+    "expected": {
+      "raw": {
+        "c0": 0.2538,
+        "bac": 0
+      },
+      "level": "low",
+      "tol": 0.005
+    },
+    "originalInput": {
+      "sexo": "M",
+      "peso": 80,
+      "cerveja": 1,
+      "horas": 3
+    },
+    "expandedZeroOptions": []
+  },
+  {
+    "label": "Outra bebida: 200 mL a 40%, homem 80 kg, 0 h: 63,12 g; 1,16 g/L",
+    "input": {
+      "sexo": "M",
+      "peso": 80,
+      "outro_ml": 200,
+      "outro_teor": 40,
+      "horas": 0
+    },
+    "expected": {
+      "raw": {
+        "alcohol": 63.12,
+        "bac": 1.1603
+      },
+      "level": "high",
+      "tol": 0.005
+    },
+    "originalInput": {
+      "sexo": "M",
+      "peso": 80,
+      "outro_ml": 200,
+      "outro_teor": 40,
+      "horas": 0
+    },
+    "expandedZeroOptions": []
+  },
+  {
+    "label": "Nenhuma bebida: erro",
+    "input": {
+      "sexo": "M",
+      "peso": 70,
+      "horas": 1
+    },
+    "expected": {
+      "error": true
+    },
+    "originalInput": {
+      "sexo": "M",
+      "peso": 70,
+      "horas": 1
+    },
+    "expandedZeroOptions": []
+  }
+]

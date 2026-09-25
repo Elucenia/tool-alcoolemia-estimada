@@ -1,0 +1,271 @@
+{
+  "tool": {
+    "id": "alcoolemia-estimada",
+    "title": "Alcoolemia estimada (fórmula de Widmark)",
+    "short": "Álcool no sangue estimado e limites do CTB",
+    "spec": [
+      "medicina-de-trafego",
+      "medicina-legal-e-pericia-medica",
+      "medicina-de-emergencia"
+    ],
+    "tier": 1,
+    "desc": "Estime a alcoolemia pela fórmula de Widmark a partir das bebidas, do peso, do sexo e do tempo, e compare com os limites do Código de Trânsito Brasileiro.",
+    "lead": "Estima a concentração de álcool no sangue depois de beber, pela fórmula de Widmark, para ensino, orientação e perícia retrospectiva, com os limites legais brasileiros.",
+    "fields": [
+      [
+        "sexo",
+        "Sexo",
+        "radio",
+        {
+          "opts": {
+            "F": "Feminino",
+            "M": "Masculino"
+          }
+        }
+      ],
+      [
+        "peso",
+        "Peso",
+        "num",
+        {
+          "min": 35,
+          "max": 250,
+          "step": 0.1,
+          "unit": "kg",
+          "ph": "70"
+        }
+      ],
+      [
+        "cerveja",
+        "Latas de cerveja (350 mL, 5%)",
+        "num",
+        {
+          "min": 0,
+          "max": 40,
+          "step": 0.5,
+          "unit": "latas",
+          "ph": "0",
+          "opt": true
+        }
+      ],
+      [
+        "vinho",
+        "Taças de vinho (150 mL, 12%)",
+        "num",
+        {
+          "min": 0,
+          "max": 30,
+          "step": 0.5,
+          "unit": "taças",
+          "ph": "0",
+          "opt": true
+        }
+      ],
+      [
+        "destilado",
+        "Doses de destilado (50 mL, 40%)",
+        "num",
+        {
+          "min": 0,
+          "max": 30,
+          "step": 0.5,
+          "unit": "doses",
+          "ph": "0",
+          "opt": true
+        }
+      ],
+      [
+        "outro_ml",
+        "Outra bebida: volume total",
+        "num",
+        {
+          "min": 1,
+          "max": 5000,
+          "step": 1,
+          "unit": "mL",
+          "opt": true
+        }
+      ],
+      [
+        "outro_teor",
+        "Outra bebida: teor alcoólico",
+        "num",
+        {
+          "min": 0.5,
+          "max": 80,
+          "step": 0.1,
+          "unit": "% vol.",
+          "opt": true
+        }
+      ],
+      [
+        "horas",
+        "Tempo desde o início do consumo",
+        "num",
+        {
+          "min": 0,
+          "max": 48,
+          "step": 0.25,
+          "unit": "h",
+          "ph": "2"
+        }
+      ]
+    ],
+    "formula": "<p>Álcool ingerido (g) = volume (mL) × teor (%) / 100 × 0,789 (densidade do etanol).</p><p><strong>Widmark:</strong> C = A / (r × P) − β × t, em que A = gramas de álcool, P = peso (kg), r = fator de distribuição (0,68 no homem e 0,55 na mulher), β = eliminação (0,15 g/L por hora; faixa usual de 0,10 a 0,20) e t = horas desde o início do consumo. O resultado sai em g/kg, aproximado aqui a g/L de sangue.</p><p>Equivalente no ar expirado: g/L de sangue ÷ 2 = mg/L de ar (proporção do art. 306 do CTB: 6 dg/L de sangue = 0,3 mg/L de ar).</p>",
+    "table": [
+      [
+        "Situação",
+        "Critério legal (CTB)",
+        "Consequência"
+      ],
+      [
+        "Qualquer concentração de álcool",
+        "Art. 165: sangue com qualquer concentração ou etilômetro ≥ 0,05 mg/L (Res. Contran 432/2013)",
+        "Infração gravíssima: multa (× 10), suspensão do direito de dirigir por 12 meses e retenção do veículo"
+      ],
+      [
+        "≥ 6 dg/L de sangue (0,6 g/L) ou ≥ 0,3 mg/L de ar",
+        "Art. 306: crime de trânsito (etilômetro ≥ 0,34 mg/L medido)",
+        "Detenção de 6 meses a 3 anos, multa e suspensão ou proibição de obter a habilitação"
+      ]
+    ],
+    "table_note": "Desde a Lei nº 11.705/2008 (Lei Seca) e a Lei nº 12.760/2012, não há limite tolerado: qualquer quantidade de álcool ao dirigir é infração.",
+    "tips": [
+      "<strong>Não existe dose segura para dirigir</strong>: qualquer concentração é infração, e o desempenho ao volante já piora com alcoolemias baixas. Não use o cálculo para decidir se pode dirigir.",
+      "A fórmula supõe absorção completa. Com o estômago cheio, o pico é mais baixo e mais tardio; logo após beber, a alcoolemia real ainda pode estar subindo.",
+      "A incerteza individual é grande (r e β variam muito): em perícia retrospectiva, apresente sempre uma faixa (β de 0,10 a 0,20 g/L/h) e não um valor único.",
+      "Obesidade reduz o fator r (menos água corporal por quilo): o cálculo com peso total pode subestimar a alcoolemia.",
+      "Café, banho frio, vômito ou \"dormir um pouco\" não aceleram a eliminação, que depende quase só do tempo."
+    ],
+    "sources": [
+      [
+        "Posey D, Mozayani A. The estimation of blood alcohol concentration: Widmark revisited. Forensic Sci Med Pathol, 2007.",
+        "https://doi.org/10.1385/fsmp:3:1:33"
+      ],
+      [
+        "Searle J. Alcohol calculations and their uncertainty. Med Sci Law, 2015.",
+        "https://doi.org/10.1177/0025802414524385"
+      ],
+      [
+        "Brasil. Lei nº 9.503, de 23 de setembro de 1997: Código de Trânsito Brasileiro (arts. 165, 276 e 306), texto compilado.",
+        "https://www.planalto.gov.br/ccivil_03/leis/l9503compilado.htm"
+      ]
+    ],
+    "cases": [
+      [
+        "Homem, 70 kg, 4 latas, 2 h: 55,23 g; pico 1,160 g/L; agora 0,86 g/L (crime)",
+        {
+          "sexo": "M",
+          "peso": 70,
+          "cerveja": 4,
+          "horas": 2
+        },
+        {
+          "raw": {
+            "alcohol": 55.23,
+            "c0": 1.1603,
+            "bac": 0.8603,
+            "zero": 5.735
+          },
+          "level": "high",
+          "tol": 0.005
+        }
+      ],
+      [
+        "Mulher, 60 kg, 1 taça de vinho, 1 h: 14,20 g; 0,43 − 0,15 = 0,28 g/L (infração)",
+        {
+          "sexo": "F",
+          "peso": 60,
+          "vinho": 1,
+          "horas": 1
+        },
+        {
+          "raw": {
+            "alcohol": 14.202,
+            "bac": 0.2804
+          },
+          "level": "mid",
+          "tol": 0.005
+        }
+      ],
+      [
+        "Homem, 80 kg, 1 lata, 3 h: 0,254 − 0,45 &lt; 0: estimativa zerada",
+        {
+          "sexo": "M",
+          "peso": 80,
+          "cerveja": 1,
+          "horas": 3
+        },
+        {
+          "raw": {
+            "c0": 0.2538,
+            "bac": 0
+          },
+          "level": "low",
+          "tol": 0.005
+        }
+      ],
+      [
+        "Outra bebida: 200 mL a 40%, homem 80 kg, 0 h: 63,12 g; 1,16 g/L",
+        {
+          "sexo": "M",
+          "peso": 80,
+          "outro_ml": 200,
+          "outro_teor": 40,
+          "horas": 0
+        },
+        {
+          "raw": {
+            "alcohol": 63.12,
+            "bac": 1.1603
+          },
+          "level": "high",
+          "tol": 0.005
+        }
+      ],
+      [
+        "Nenhuma bebida: erro",
+        {
+          "sexo": "M",
+          "peso": 70,
+          "horas": 1
+        },
+        {
+          "error": true
+        }
+      ]
+    ],
+    "batch": "saude-coletiva",
+    "kind": "Calculadora",
+    "config": null,
+    "areaId": "saude-coletiva",
+    "clinicalReview": "pending",
+    "sourceReview": "pending",
+    "sourceFile": "app/content/ferramentas/saude-coletiva.php",
+    "arithmeticTest": {
+      "status": "passed",
+      "testedAt": "2026-09-25",
+      "total": 5,
+      "passed": 5,
+      "failures": []
+    },
+    "independentArithmeticTest": {
+      "status": "not-tested",
+      "testedAt": null,
+      "total": 0,
+      "passed": 0,
+      "cases": []
+    }
+  },
+  "review": {
+    "status": "needs-review",
+    "reason": "Revisão documental e clínica independente pendente.",
+    "clinicalValidation": "not-performed"
+  },
+  "sourceFile": {
+    "path": "app/content/ferramentas/saude-coletiva.php",
+    "sha256": "5f081943f8faff99f4a6ac07fc16af6d7f8e6aa64d874af2d00ed8bae97da6a2",
+    "bytes": 77577
+  },
+  "clinicalValidation": "not-performed"
+}
