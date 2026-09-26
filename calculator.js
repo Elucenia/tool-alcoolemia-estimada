@@ -1,11 +1,11 @@
-/* tool-alcoolemia-estimada · Elucenia · https://github.com/Elucenia/tool-alcoolemia-estimada
-   Copyright (c) 2026 Elucenia · Felipe Guedes (fgxdev.com). Licensed under the Apache License 2.0: keep this notice and the NOTICE file, and mark your changes.
+/* tool-alcoolemia-estimada · ELUCENIA · https://github.com/Elucenia/tool-alcoolemia-estimada
+   Copyright (c) 2026 ELUCENIA · Felipe Guedes (fgxdev.com). Licensed under the Apache License 2.0: keep this notice and the NOTICE file, and mark your changes.
    Standalone integration. Package metadata and rights: README.md. */
 (function(root){'use strict';
 function freeze(value){if(value&&typeof value==='object'){for(const item of Object.values(value))freeze(item);Object.freeze(value);}return value;}
 const TOOL=freeze({"id":"alcoolemia-estimada","title":"Alcoolemia estimada (fórmula de Widmark)","fields":[["sexo","Sexo","radio",{"opts":{"F":"Feminino","M":"Masculino"}}],["peso","Peso","num",{"min":35,"max":250,"step":0.1,"unit":"kg","ph":"70"}],["cerveja","Latas de cerveja (350 mL, 5%)","num",{"min":0,"max":40,"step":0.5,"unit":"latas","ph":"0","opt":true}],["vinho","Taças de vinho (150 mL, 12%)","num",{"min":0,"max":30,"step":0.5,"unit":"taças","ph":"0","opt":true}],["destilado","Doses de destilado (50 mL, 40%)","num",{"min":0,"max":30,"step":0.5,"unit":"doses","ph":"0","opt":true}],["outro_ml","Outra bebida: volume total","num",{"min":1,"max":5000,"step":1,"unit":"mL","opt":true}],["outro_teor","Outra bebida: teor alcoólico","num",{"min":0.5,"max":80,"step":0.1,"unit":"% vol.","opt":true}],["horas","Tempo desde o início do consumo","num",{"min":0,"max":48,"step":0.25,"unit":"h","ph":"2"}]],"config":null,"reviewStatus":"needs-review","clinicalValidation":"not-performed"});
 const window={};
-/* Elucenia arithmetic registry. No DOM access, storage, telemetry or network requests. */
+/* ELUCENIA arithmetic registry. No DOM access, storage, telemetry or network requests. */
 (function(root){
   'use strict';
   const CALC={fn:Object.create(null)};
