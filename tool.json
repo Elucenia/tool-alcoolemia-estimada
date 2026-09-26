@@ -235,13 +235,9 @@
         }
       ]
     ],
-    "batch": "saude-coletiva",
     "kind": "Calculadora",
     "config": null,
-    "areaId": "saude-coletiva",
     "clinicalReview": "pending",
-    "sourceReview": "pending",
-    "sourceFile": "app/content/ferramentas/saude-coletiva.php",
     "arithmeticTest": {
       "status": "passed",
       "testedAt": "2026-09-25",
@@ -261,11 +257,6 @@
     "status": "needs-review",
     "reason": "Revisão documental e clínica independente pendente.",
     "clinicalValidation": "not-performed"
-  },
-  "sourceFile": {
-    "path": "app/content/ferramentas/saude-coletiva.php",
-    "sha256": "5f081943f8faff99f4a6ac07fc16af6d7f8e6aa64d874af2d00ed8bae97da6a2",
-    "bytes": 77577
   },
   "clinicalValidation": "not-performed"
 }
